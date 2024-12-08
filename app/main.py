@@ -11,7 +11,7 @@ st.markdown(
 
 st.markdown(
     "To use this app, you will first need to create a Groq API key [here](https://console.groq.com/keys). "
-    "After that, you can input your API."
+    "After that, you can input your API key."
     "Use the provided context to formulate the answer."
 )
 
