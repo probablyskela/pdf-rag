@@ -1,5 +1,5 @@
 import streamlit as st
-from app.rag import RAG
+from rag import RAG
 from pypdf import PdfReader
 
 

@@ -1,5 +1,5 @@
 from groq import Groq
-from app.retriever import Retriever
+from retriever import Retriever
 
 PROMPT = """\
 You are a helpful assistant that can answer questions.

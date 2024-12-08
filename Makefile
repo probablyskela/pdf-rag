@@ -1,2 +1,2 @@
 run:
-	@uv run python -m streamlit run app/main.py
+	@uv run streamlit run app/main.py

@@ -1,6 +1,6 @@
 from rank_bm25 import BM25Okapi
 import numpy as np
-from app.utils import chunk_document
+from utils import chunk_document
 
 from sentence_transformers import SentenceTransformer
 
