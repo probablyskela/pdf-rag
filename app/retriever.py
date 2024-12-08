@@ -15,11 +15,18 @@ class Retriever:
 
         self.doc_embeddings = self.sbert.encode(docs)
 
-    def get_docs(self, query: str, n: int = 3) -> list[str]:
-        bm25_scores = self._get_bm25_scores(query=query)
-        semantic_scores = self._get_semantic_scores(query=query)
+    def get_docs(
+        self,
+        query: str,
+        n: int = 3,
+        keywords: bool = True,
+        semantic: bool = True,
+    ) -> list[str]:
+        zeros = np.zeros(len(self.docs))
+        bm25_scores = 0.3 * self._get_bm25_scores(query=query) if keywords else zeros
+        semantic_scores = 0.7 * self._get_semantic_scores(query=query) if semantic else zeros
 
-        scores = 0.3 * bm25_scores + 0.7 * semantic_scores
+        scores = bm25_scores + semantic_scores
 
         sorted_indices = np.argsort(scores)[::-1]
 

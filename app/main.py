@@ -33,6 +33,9 @@ question = st.text_input(
     max_chars=100,
 )
 
+keywords = st.checkbox("Search using keywords.", value=True)
+semantic = st.checkbox("Search using semantics.", value=True)
+
 
 def on_click():
     if not api_key:
@@ -58,7 +61,7 @@ def on_click():
         st.error("An error has occurred! Please verify that your API key is correct and try again.")
         return
 
-    answer = rag.answer_question(question=question)
+    answer = rag.answer_question(question=question, keywords=keywords, semantic=semantic)
     st.info(f"Answer:\n{answer}")
 
 

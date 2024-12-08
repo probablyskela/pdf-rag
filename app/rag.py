@@ -27,8 +27,13 @@ class RAG:
 
         return True
 
-    def answer_question(self, question: str) -> str | None:
-        context = self.retriever.get_docs(query=question, n=10)
+    def answer_question(self, question: str, keywords: bool, semantic: bool) -> str | None:
+        context = self.retriever.get_docs(
+            query=question,
+            n=10,
+            keywords=keywords,
+            semantic=semantic,
+        )
 
         completion = self.client.chat.completions.create(
             messages=[
